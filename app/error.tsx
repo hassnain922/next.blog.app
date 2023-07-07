@@ -1,13 +1,16 @@
 'use client' // Error components must be Client Components
 
 
-
+import log from 'loglevel';
 import { useEffect } from 'react';
+
+log.setLevel(log.levels.ERROR); // Set the log level to ERROR or higher
+
 
 export const Error = ({ error, reset}:any ) => {
   useEffect(() => {
-    // Log the error to an error reporting service
-    console.error(error);
+    // Log the error using loglevel
+    log.error(error);
   }, [error]);
 
   return (
